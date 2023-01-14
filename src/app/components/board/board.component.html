@@ -1,10 +1,11 @@
-<div class="m-4">
-    Header
+<div class="m-4 text-yellow-200 text-xl select-none">
+  Current move: {{ curPlayer === 0 ? "X" : "O" }}
 </div>
 
-<div class="grid grid-cols-3">
-    <app-cell
-        *ngFor="let cell of board"
-        [cell]="cell">
-    </app-cell>
+<div class="grid grid-cols-3 gap-1">
+  <app-cell 
+    *ngFor="let cell of board; index as i" 
+    [cell]="cell"
+    (onClickEvent)="onCellClick(i)"> 
+</app-cell>
 </div>
