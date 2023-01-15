@@ -1,11 +1,27 @@
-<div class="m-4 text-yellow-200 text-xl select-none">
-  Current move: {{ curPlayer === 0 ? "X" : "O" }}
+<div class="flex h-16 items-center">
+  <div class="m-4 text-yellow-200 text-xl select-none" [ngSwitch]="gameStatus">
+    <div *ngSwitchCase="0">X has won!</div>
+    <div *ngSwitchCase="1">O has won!</div>
+    <div *ngSwitchCase="2">It is a tie!</div>
+    <div *ngSwitchCase="3">Current move: {{ curPlayer === 0 ? "X" : "O" }}</div>
+  </div>
+
+  <button
+    *ngIf="gameStatus !== 3"
+    mat-raised-button
+    color="primary"
+    class="h-12"
+    (click)="startNewGame()"
+  >
+    New Game
+  </button>
 </div>
 
 <div class="grid grid-cols-3 gap-1">
-  <app-cell 
-    *ngFor="let cell of board; index as i" 
+  <app-cell
+    *ngFor="let cell of board; index as i"
     [cell]="cell"
-    (onClickEvent)="onCellClick(i)"> 
-</app-cell>
+    (onClickEvent)="onCellClick(i)"
+  >
+  </app-cell>
 </div>
