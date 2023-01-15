@@ -23,10 +23,11 @@ export function getWinner(
       board[b] === curPlayer &&
       board[c] === curPlayer
     ) {
+      // if yes, return the current player's mark and the winning indexes of the board
       return [curPlayer, a, b, c];
     }
   }
 
-  // if no winner
+  // if there is no winner
   return [2, 9, 9, 9];
 }

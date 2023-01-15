@@ -1,8 +1,9 @@
-<div 
-    class="bg-gray-200 w-20 h-20 flex items-center justify-center text-5xl select-none"
-    (click)="onClick()">
-  <div 
-    *ngIf="cell !== 2">
-        {{ cell === 0 ? "X" : "O" }}
+<div
+  class="bg-gray-200 w-20 h-20 flex items-center justify-center text-5xl select-none"
+  [ngClass]="{ 'bg-green-600': isHighlighted }"
+  (click)="onClick()"
+>
+  <div *ngIf="cell !== 2">
+    {{ cell === 0 ? "X" : "O" }}
   </div>
 </div>
